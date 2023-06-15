@@ -1,10 +1,17 @@
 import random
 
+import print_graph
+
 
 def get_response(message: str) -> str:
-    p_message = message.lower()
+	message=message.lower().split(": ")
+	command = message[0]
 
-    if p_message == '!help':
-        return '`? prefix for private response`\n `!help for help`\n '
+	if command == '!help':
+		return '`usage - usage graph`'
 
-    return 'I didn\'t understand what you wrote. Try typing "!help".'
+	if command == 'usage':
+		return print_graph.make_graph(values=[10,20,30,40,50],heigth=20,col_width=3)
+			
+
+	return 'I didn\'t understand what you wrote. Try typing "!help".'
